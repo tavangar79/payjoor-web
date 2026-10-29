@@ -1,12 +1,12 @@
 # web/
 
-Public website (landing + legal pages), server-rendered by the backend. See the root `CLAUDE.md` and PRD §7.
+Public website (landing + legal pages), server-rendered by its own Node server, `server.js`. See the root `CLAUDE.md` and PRD §7.
 
 **Before designing or building any page, use the `web-ui` skill** (it runs the Taste skill).
 
 ## How it renders
 
-- `src/entry-server.tsx` exports `render(url, data)` → `{ html, lang, dir, title, status }`. The backend (`backend/src/routes/landing.ts`) calls it and fills `dist/client/index.html`.
+- `src/entry-server.tsx` exports `render(url, data)` → `{ html, lang, dir, title, status }`. `server.js` (Express) calls it and fills `dist/client/index.html`. It reads `CONTACT_EMAIL`, `SITE_INSTAGRAM_HANDLE` and `COMPANY_NAME` from the environment (template: `.env.example`) and asks the backend at `API_URL` only for a deletion request's status (`GET /api/deletion-status`).
 - `src/routes.ts` maps URLs to pages; `src/i18n/fa.ts` and `en.ts` hold all copy (same `Strings` type).
 - Hydration (`src/entry-client.tsx`) is optional.
 
@@ -21,7 +21,7 @@ Public website (landing + legal pages), server-rendered by the backend. See the 
 
 ## Commands
 
-`npm run dev:web`, `npm run build -w web` (client + SSR builds).
+`npm run dev:web`, `npm run build -w web` (client + SSR builds), `npm start -w web` (serves the build on :3001), `npm test -w web` (`server.test.js`, node:test).
 
 ## graphify
 
