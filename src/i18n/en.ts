@@ -168,7 +168,7 @@ export const en: Strings = {
         heading: 'Who we share it with',
         body: [
           'We do not sell, rent or trade your information, and we do not use it for advertising or profiling.',
-          'Your message reaches us through Meta’s Instagram platform, and our servers are run by hosting providers who process data only on our behalf. To learn who published a post, we send the public post link (never your ID or message) to Apify, a service that reads public Instagram information. We may disclose information if the law requires it.',
+          'Your message reaches us through Meta’s Instagram platform and BoxAPI (boxapi.ir), the service that connects our Instagram account to our servers and sends our replies. Our servers are run by hosting providers who process data only on our behalf. To learn who published a post, we send the public post link (never your ID or message) to BoxAPI, which reads public Instagram information. We may disclose information if the law requires it.',
         ],
       },
       {
